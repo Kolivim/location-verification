@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/geocompare_test?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: test
+    password: test
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+yandex:
+  api:
+    key: test-key
+    geocode-url: http://localhost:${wiremock.server.port}/yandex
+
+dadata:
+  api:
+    key: test-key
+    secret: test-secret
+    geocode-url: http://localhost:${wiremock.server.port}/dadata
+
+DADATA_API_KEY: test-key
+YANDEX_API_KEY: test-key
+DADATA_API_SECRET: test-secret
