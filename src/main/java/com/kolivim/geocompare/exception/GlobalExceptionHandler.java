@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity< ErrorResponse /*Map<String, Object>*/ > handleValidation(MethodArgumentNotValidException ex) {
+    public ResponseEntity< ErrorResponse > handleValidation(MethodArgumentNotValidException ex) {
         log.error("startMethod handleValidation MethodArgumentNotValidException: {}", ex.getMessage());
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
@@ -44,7 +44,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity< ErrorResponse /*Map<String, Object>*/ > handleGeneral(Exception ex) {
+    public ResponseEntity<ErrorResponse> handleGeneral(Exception ex) {
         log.error("startMethod handleGeneral Exception: {}", ex.getMessage());
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -52,7 +52,7 @@ public class GlobalExceptionHandler {
                         .timestamp(LocalDateTime.now())
                         .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
                         .error("Internal Server Error")
-                        .message(ex.getMessage())
+                        .message("Internal Server Error")
                         .build());
     }
 

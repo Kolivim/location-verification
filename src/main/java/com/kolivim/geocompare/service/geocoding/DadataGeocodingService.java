@@ -41,7 +41,7 @@ public class DadataGeocodingService {
                     .bodyToMono(DadataGeocoderResponse.class)
                     .block();
         } catch (Exception e) {
-            log.error("Ошибка Dadata geocoding", e.getMessage());
+            log.error("Ошибка Dadata geocoding {}", e.getMessage());
             throw new GeocodingException("Dadata geocoding error: " + e.getMessage());
         }
 

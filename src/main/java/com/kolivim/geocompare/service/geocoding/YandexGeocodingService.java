@@ -53,7 +53,7 @@ public class YandexGeocodingService {
                     .block();
 
         } catch (Exception e) {
-            log.error("Ошибка Yandex geocoding", e.getMessage());
+            log.error("Ошибка Yandex geocoding {}", e.getMessage());
             throw new GeocodingException("Yandex geocoding error: " + e.getMessage());
         }
 
